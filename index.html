@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<script src="js/canvas-to-blob.min.js"></script>
+<html>
+
+	<head>
+	
+		<style type="text/css">
+		.page{
+			margin-left:30px;
+			//background-color: #B2FD96;
+			 background-image:
+				-webkit-gradient(
+				linear,
+				left top,
+				left bottom,
+				color-stop(0.15, rgb(189,189,189)),
+				color-stop(0.58, rgb(0,0,0)),
+				color-stop(0.79, rgb(0,0,0))
+					)
+			}
+		
+		.display{
+		
+		
+		-webkit-box-shadow: 0px 0px 4px 0px #ffffff; /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
+          box-shadow: 0px 0px 4px 0px #ffffff;
+			width: 190px;
+			font-size: 14pt;
+			color: #ffffff;
+			display:inline-block;
+			background-color: #000000;
+			border-radius: 20px;
+			border-color: #56333D;
+			padding: 20px;
+			margin-left: 5px;
+			margin-right: 5px;
+			margin-top: 5px;
+			}
+		.state{
+		font-size:20pt;
+		}
+		.h1{
+			font-size: 5pt;
+			margin-left: 5px;
+			}
+			</style>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+   
+    <script src="/dronestream/nodecopter-client.js" type="text/javascript" charset="utf-8"></script>
+		<title>MINDFLEX - NODECOPTER</title>
+	</head>
+	<body class="page">
+	
+		<h1 class="h1">MINDFLEX - NODECOPTER</h1>
+		
+		<div id="droneStream" style="width: 640px; height: 360px"></div>
+		<div class="display" id="P_1">
+			<div class="state" id="airStateReadOut"></div>
+			<div id="CXN_1"></div>
+			<div id="ATN_1"></div>
+			<div id="MTN_1"></div>
+		</div>
+		<div class="display" id="P_2">
+			<div class="state" id="rotationStateReadOut"></div>
+			<div id="CXN_2"></div>
+			<div id="ATN_2"></div>
+			<div id="MTN_2"></div>
+		</div>
+		<div class="display" id="P_3">
+			<div class="state" id="forwardStateReadOut"></div>
+			<div id="CXN_3"></div>
+			<div id="ATN_3"></div>
+			<div id="MTN_3"></div>
+		</div>
+		</body>
+		
+		<script src="/socket.io/lib/socket.io.js"></script>
+		<script>
+			
+			var airState = document.getElementById('airStateReadOut');
+			var CXN_1 = document.getElementById('CXN_1');
+			var ATN_1 = document.getElementById('ATN_1');
+			var MTN_1 = document.getElementById('MTN_1');
+			
+			var rotationState = document.getElementById('rotationStateReadOut');
+			var CXN_2 = document.getElementById('CXN_2');
+			var ATN_2 = document.getElementById('ATN_2');
+			var MTN_2 = document.getElementById('MTN_2');
+			
+			var forwardState = document.getElementById('forwardStateReadOut');
+			var CXN_3 = document.getElementById('CXN_3');
+			var ATN_3 = document.getElementById('ATN_3');
+			var MTN_3 = document.getElementById('MTN_3');
+			
+			var socket = io.connect('http://127.0.0.1:3000');
+			var sp = '&nbsp;'
+			socket.on('brainData', function(data){
+			
+				//alert('connection_1_has_changed to ' + data)
+				console.log('Incoming Brain Data...');
+				console.log(data.number);
+			    console.log(data);
+				console.log(data.array[0]);
+			
+				CXN_1.innerHTML = 'cxn' + sp + sp + sp + sp + sp + sp + data.array[0];
+			
+				ATN_1.innerHTML = 'atn' + sp + sp + sp + sp + sp + sp + sp + data.array[1];
+			
+				MTN_1.innerHTML = 'mtn' + sp + sp + sp + sp + sp + data.array[2];
+				
+				airState.innerHTML = '1  ' + data.array[3];
+				
+	
+				CXN_2.innerHTML = 'cxn' + sp + sp + sp + sp + sp + sp + data.array[4];
+		
+				ATN_2.innerHTML = 'atn' + sp + sp + sp + sp + sp + sp + sp + data.array[5];
+		
+				MTN_2.innerHTML = 'mtn' + sp + sp + sp + sp + sp + data.array[6];
+				
+				rotationState.innerHTML = '2  ' + data.array[7];
+				
+		
+				CXN_3.innerHTML = 'cxn' + sp + sp + sp + sp + sp + sp + data.array[8];
+		
+				ATN_3.innerHTML = 'atn' + sp + sp + sp + sp + sp + sp + sp + data.array[9];
+				
+				MTN_3.innerHTML = 'mtn' + sp + sp + sp + sp + sp + data.array[10];
+				
+				forwardState.innerHTML = '3  ' + data.array[11];
+				
+				
+				sleep(1000);
+						socket.emit('requestBrainData');
+							}
+						);
+		</script>
+		 <script type="text/javascript" charset="utf-8">
+        new NodecopterStream(document.getElementById("droneStream"));
+		var myImage = canvas.toDataURL("image/png");		
+		</script>
+
+
+		<script>
+			function sleep(ms) {
+				var start = new Date().getTime(), expire = start + ms;
+				while (new Date().getTime() < expire) { }
+				return;
+}
+		</script>
+		</html>

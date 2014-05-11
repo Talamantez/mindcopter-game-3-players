@@ -1,0 +1,763 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'opencv-node' ]
+2 info using npm@1.2.0
+3 info using node@v0.8.17
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 verbose read json C:\Users\rtalaman\AppData\Roaming\npm\package.json
+6 verbose read json C:\Users\rtalaman\AppData\Roaming\npm\package.json
+7 verbose cache add [ 'opencv-node', null ]
+8 silly cache add name=undefined spec="opencv-node" args=["opencv-node",null]
+9 verbose parsed url { pathname: 'opencv-node',
+9 verbose parsed url   path: 'opencv-node',
+9 verbose parsed url   href: 'opencv-node' }
+10 silly lockFile 16219562-opencv-node opencv-node
+11 verbose lock opencv-node C:\Users\rtalaman\AppData\Roaming\npm-cache\16219562-opencv-node.lock
+12 silly lockFile 16219562-opencv-node opencv-node
+13 verbose addNamed [ 'opencv-node', '' ]
+14 verbose addNamed [ null, '' ]
+15 silly lockFile fd5ebd3a-opencv-node opencv-node@
+16 verbose lock opencv-node@ C:\Users\rtalaman\AppData\Roaming\npm-cache\fd5ebd3a-opencv-node.lock
+17 silly addNameRange { name: 'opencv-node', range: '', hasData: false }
+18 verbose url raw opencv-node
+19 verbose url resolving [ 'https://registry.npmjs.org/', './opencv-node' ]
+20 verbose url resolved https://registry.npmjs.org/opencv-node
+21 info trying registry request attempt 1 at 22:44:40
+22 verbose etag "BLY1QAFRFZQY6QB7NJE2PC20M"
+23 http GET https://registry.npmjs.org/opencv-node
+24 http 200 https://registry.npmjs.org/opencv-node
+25 silly registry.get cb [ 200,
+25 silly registry.get   { date: 'Fri, 18 Apr 2014 05:44:24 GMT',
+25 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+25 silly registry.get     etag: '"70GT60IMNV8Q5REBAI3JYP5J7"',
+25 silly registry.get     'content-type': 'application/json',
+25 silly registry.get     via: '1.1 varnish',
+25 silly registry.get     'cache-control': 'max-age=1',
+25 silly registry.get     'content-length': '14899',
+25 silly registry.get     'accept-ranges': 'bytes',
+25 silly registry.get     age: '0',
+25 silly registry.get     'x-served-by': 'cache-v36-ASH, cache-lax1435-LAX',
+25 silly registry.get     'x-cache': 'MISS, MISS',
+25 silly registry.get     'x-cache-hits': '0, 0',
+25 silly registry.get     'x-timer': 'S1397799864.103670597,VS0,VS32,VE216,VE250',
+25 silly registry.get     vary: 'Accept',
+25 silly registry.get     'keep-alive': 'timeout=10, max=50',
+25 silly registry.get     connection: 'Keep-Alive' } ]
+26 silly addNameRange number 2 { name: 'opencv-node', range: '', hasData: true }
+27 silly addNameRange versions [ 'opencv-node',
+27 silly addNameRange   [ '0.1.0',
+27 silly addNameRange     '0.2.0',
+27 silly addNameRange     '0.2.1',
+27 silly addNameRange     '0.2.2',
+27 silly addNameRange     '0.2.3',
+27 silly addNameRange     '0.2.4',
+27 silly addNameRange     '0.2.5',
+27 silly addNameRange     '0.2.6' ] ]
+28 verbose addNamed [ 'opencv-node', '0.2.6' ]
+29 verbose addNamed [ '0.2.6', '0.2.6' ]
+30 silly lockFile d75d6ca7-opencv-node-0-2-6 opencv-node@0.2.6
+31 verbose lock opencv-node@0.2.6 C:\Users\rtalaman\AppData\Roaming\npm-cache\d75d6ca7-opencv-node-0-2-6.lock
+32 verbose read json C:\Users\rtalaman\AppData\Roaming\npm-cache\opencv-node\0.2.6\package\package.json
+33 silly lockFile d75d6ca7-opencv-node-0-2-6 opencv-node@0.2.6
+34 silly lockFile fd5ebd3a-opencv-node opencv-node@
+35 silly resolved [ { name: 'opencv-node',
+35 silly resolved     description: 'Opencv for node',
+35 silly resolved     version: '0.2.6',
+35 silly resolved     homepage: 'https://github.com/codeboost/opencv-node',
+35 silly resolved     author: { name: 'Florin Braghis', email: 'florin@libertv.ro' },
+35 silly resolved     keywords: [ 'opencv' ],
+35 silly resolved     scripts:
+35 silly resolved      { install: 'node-gyp configure build',
+35 silly resolved        test: 'coffee script/tests' },
+35 silly resolved     main: 'index.js',
+35 silly resolved     engines: { node: '>=0.8.11' },
+35 silly resolved     dependencies:
+35 silly resolved      { 'coffee-script': '>=1.3.3',
+35 silly resolved        underscore: '>=1.3.3',
+35 silly resolved        keypress: '*' },
+35 silly resolved     readme: 'Purpose \n=======\nExpose opencv to the node environment.\n\nFeatures\n========\n\t\n\t- cv::Point, cv::Size, cv::Rect, etc replaced by object notation:\n\t\tPoint -> {x: 0, y:0}, Size -> {width: 33, height: 33}\n\n\t- Checks the types of parameters as well as ranges of values on each native call (harder to crash app from script)\n\t- Friendly exception messages on invalid parameters \n\nExample\n=======\n\nSee scripts/effects.coffee for a full demo.\n\n\nInstallation - MacOS X \n=======================\n\n\t$ brew install opencv --build32\n\t$ npm install -g opencv-node\n\t$ coffee scripts/tests\n\n(tested with GCC 4.2.1 and node 0.8.0)\n\nInstallation - Windows \n=======================\n1. Download OpenCV from http://sourceforge.net/projects/opencvlibrary/files/latest/download\n2. Extract it to a folder, eg C:\\OpenCV\n3. Open a Visual Studio command prompt and type\n\n\t\tset OPENCV_ROOT=C:/OpenCV\n\t\tnpm install -g opencv-node\n\n(tested with Visual Studio 2010 and node 0.8.8)\n\nAPI Differences\n\nSome functions have a more js-friendly API/syntax. \nThe void functions which return their output in an argument passed by reference, return the result directly:\n\n\tcv::split returns an Array and takes only 1 argument\n\tcv::HoughCircles returns an Array\n\tcv::HoughLines returns an Array\n\tcv::cornerSubPix returns an Array\n\n\t* others?\n\nLicense\n=======\nBSD\n\nDisclaimer\n==========\n\nPlease report any bugs or missing functions. This module has never been used in production and is generally \nmeant to be used for experimentation. \n\n',
+35 silly resolved     readmeFilename: 'README.md',
+35 silly resolved     _id: 'opencv-node@0.2.6',
+35 silly resolved     _from: 'opencv-node' } ]
+36 info install opencv-node@0.2.6 into C:\Users\rtalaman\AppData\Roaming\npm
+37 info installOne opencv-node@0.2.6
+38 verbose from cache C:\Users\rtalaman\AppData\Roaming\npm-cache\opencv-node\0.2.6\package\package.json
+39 info C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node unbuild
+40 verbose read json C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\package.json
+41 verbose tar unpack C:\Users\rtalaman\AppData\Roaming\npm-cache\opencv-node\0.2.6\package.tgz
+42 silly lockFile 5d592b91-ing-npm-node-modules-opencv-node C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node
+43 verbose lock C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node C:\Users\rtalaman\AppData\Roaming\npm-cache\5d592b91-ing-npm-node-modules-opencv-node.lock
+44 silly gunzTarPerm modes [ '755', '644' ]
+45 silly gunzTarPerm extractEntry package.json
+46 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+47 silly gunzTarPerm extractEntry .npmignore
+48 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+49 silly gunzTarPerm extractEntry README.md
+50 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+51 silly gunzTarPerm extractEntry index.js
+52 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+53 silly gunzTarPerm extractEntry bea/cascade.bea
+54 silly gunzTarPerm modified mode [ 'bea/cascade.bea', 438, 420 ]
+55 silly gunzTarPerm extractEntry bea/compile.sh
+56 silly gunzTarPerm modified mode [ 'bea/compile.sh', 438, 420 ]
+57 silly gunzTarPerm extractEntry bea/constants.bea
+58 silly gunzTarPerm modified mode [ 'bea/constants.bea', 438, 420 ]
+59 silly gunzTarPerm extractEntry bea/cv.bea
+60 silly gunzTarPerm modified mode [ 'bea/cv.bea', 438, 420 ]
+61 silly gunzTarPerm extractEntry bea/mat.bea
+62 silly gunzTarPerm modified mode [ 'bea/mat.bea', 438, 420 ]
+63 silly gunzTarPerm extractEntry bea/matnd.bea
+64 silly gunzTarPerm modified mode [ 'bea/matnd.bea', 438, 420 ]
+65 silly gunzTarPerm extractEntry bea/opencv.bea
+66 silly gunzTarPerm modified mode [ 'bea/opencv.bea', 438, 420 ]
+67 silly gunzTarPerm extractEntry bea/sparsemat.bea
+68 silly gunzTarPerm modified mode [ 'bea/sparsemat.bea', 438, 420 ]
+69 silly gunzTarPerm extractEntry bea/types.bea
+70 silly gunzTarPerm modified mode [ 'bea/types.bea', 438, 420 ]
+71 silly gunzTarPerm extractEntry bea/videocap.bea
+72 silly gunzTarPerm modified mode [ 'bea/videocap.bea', 438, 420 ]
+73 silly gunzTarPerm extractEntry binding.gyp
+74 silly gunzTarPerm modified mode [ 'binding.gyp', 438, 420 ]
+75 silly gunzTarPerm extractEntry scripts/calcHist.coffee
+76 silly gunzTarPerm modified mode [ 'scripts/calcHist.coffee', 438, 420 ]
+77 silly gunzTarPerm extractEntry scripts/capture.coffee
+78 silly gunzTarPerm modified mode [ 'scripts/capture.coffee', 438, 420 ]
+79 silly gunzTarPerm extractEntry scripts/effects.coffee
+80 silly gunzTarPerm modified mode [ 'scripts/effects.coffee', 438, 420 ]
+81 silly gunzTarPerm extractEntry scripts/objdetect.coffee
+82 silly gunzTarPerm modified mode [ 'scripts/objdetect.coffee', 438, 420 ]
+83 silly gunzTarPerm extractEntry scripts/opencv.coffee
+84 silly gunzTarPerm modified mode [ 'scripts/opencv.coffee', 438, 420 ]
+85 silly gunzTarPerm extractEntry scripts/tests.coffee
+86 silly gunzTarPerm modified mode [ 'scripts/tests.coffee', 438, 420 ]
+87 silly gunzTarPerm extractEntry src/addon.cpp
+88 silly gunzTarPerm modified mode [ 'src/addon.cpp', 438, 420 ]
+89 silly gunzTarPerm extractEntry src/bea.h
+90 silly gunzTarPerm modified mode [ 'src/bea.h', 438, 420 ]
+91 silly gunzTarPerm extractEntry src/customTypes.h
+92 silly gunzTarPerm modified mode [ 'src/customTypes.h', 438, 420 ]
+93 silly gunzTarPerm extractEntry src/cvcheck.h
+94 silly gunzTarPerm modified mode [ 'src/cvcheck.h', 438, 420 ]
+95 silly gunzTarPerm extractEntry src/opencvjs.cpp
+96 silly gunzTarPerm modified mode [ 'src/opencvjs.cpp', 438, 420 ]
+97 silly gunzTarPerm extractEntry src/opencvjs.h
+98 silly gunzTarPerm modified mode [ 'src/opencvjs.h', 438, 420 ]
+99 silly gunzTarPerm extractEntry src/opencv_manual.cpp
+100 silly gunzTarPerm modified mode [ 'src/opencv_manual.cpp', 438, 420 ]
+101 verbose read json C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\package.json
+102 silly lockFile 5d592b91-ing-npm-node-modules-opencv-node C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node
+103 info preinstall opencv-node@0.2.6
+104 verbose from cache C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\package.json
+105 verbose readDependencies using package.json deps
+106 verbose from cache C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\package.json
+107 verbose readDependencies using package.json deps
+108 verbose cache add [ 'coffee-script@>=1.3.3', null ]
+109 silly cache add name=undefined spec="coffee-script@>=1.3.3" args=["coffee-script@>=1.3.3",null]
+110 verbose parsed url { pathname: 'coffee-script@%3E=1.3.3',
+110 verbose parsed url   path: 'coffee-script@%3E=1.3.3',
+110 verbose parsed url   href: 'coffee-script@%3E=1.3.3' }
+111 silly cache add name="coffee-script" spec=">=1.3.3" args=["coffee-script",">=1.3.3"]
+112 verbose parsed url { pathname: '%3E=1.3.3', path: '%3E=1.3.3', href: '%3E=1.3.3' }
+113 verbose addNamed [ 'coffee-script', '>=1.3.3' ]
+114 verbose addNamed [ null, '>=1.3.3' ]
+115 silly lockFile a8bff643-coffee-script-1-3-3 coffee-script@>=1.3.3
+116 verbose lock coffee-script@>=1.3.3 C:\Users\rtalaman\AppData\Roaming\npm-cache\a8bff643-coffee-script-1-3-3.lock
+117 verbose cache add [ 'underscore@>=1.3.3', null ]
+118 silly cache add name=undefined spec="underscore@>=1.3.3" args=["underscore@>=1.3.3",null]
+119 verbose parsed url { pathname: 'underscore@%3E=1.3.3',
+119 verbose parsed url   path: 'underscore@%3E=1.3.3',
+119 verbose parsed url   href: 'underscore@%3E=1.3.3' }
+120 silly cache add name="underscore" spec=">=1.3.3" args=["underscore",">=1.3.3"]
+121 verbose parsed url { pathname: '%3E=1.3.3', path: '%3E=1.3.3', href: '%3E=1.3.3' }
+122 verbose addNamed [ 'underscore', '>=1.3.3' ]
+123 verbose addNamed [ null, '>=1.3.3' ]
+124 silly lockFile 8f6137b1-underscore-1-3-3 underscore@>=1.3.3
+125 verbose lock underscore@>=1.3.3 C:\Users\rtalaman\AppData\Roaming\npm-cache\8f6137b1-underscore-1-3-3.lock
+126 verbose cache add [ 'keypress@*', null ]
+127 silly cache add name=undefined spec="keypress@*" args=["keypress@*",null]
+128 verbose parsed url { pathname: 'keypress@*',
+128 verbose parsed url   path: 'keypress@*',
+128 verbose parsed url   href: 'keypress@*' }
+129 silly cache add name="keypress" spec="*" args=["keypress","*"]
+130 verbose parsed url { pathname: '*', path: '*', href: '*' }
+131 verbose addNamed [ 'keypress', '*' ]
+132 verbose addNamed [ null, '' ]
+133 silly lockFile 8adfbd71-keypress keypress@*
+134 verbose lock keypress@* C:\Users\rtalaman\AppData\Roaming\npm-cache\8adfbd71-keypress.lock
+135 silly addNameRange { name: 'coffee-script', range: '>=1.3.3', hasData: false }
+136 silly addNameRange { name: 'underscore', range: '>=1.3.3', hasData: false }
+137 silly addNameRange { name: 'keypress', range: '', hasData: false }
+138 verbose url raw underscore
+139 verbose url resolving [ 'https://registry.npmjs.org/', './underscore' ]
+140 verbose url resolved https://registry.npmjs.org/underscore
+141 info trying registry request attempt 1 at 22:44:42
+142 verbose etag "5U6USDAWIHTYVA3EB9FR4S7QY"
+143 http GET https://registry.npmjs.org/underscore
+144 verbose url raw coffee-script
+145 verbose url resolving [ 'https://registry.npmjs.org/', './coffee-script' ]
+146 verbose url resolved https://registry.npmjs.org/coffee-script
+147 info trying registry request attempt 1 at 22:44:42
+148 verbose etag "3RFQ5MHPCPJPJN2DC2C04ZLQY"
+149 http GET https://registry.npmjs.org/coffee-script
+150 verbose url raw keypress
+151 verbose url resolving [ 'https://registry.npmjs.org/', './keypress' ]
+152 verbose url resolved https://registry.npmjs.org/keypress
+153 info trying registry request attempt 1 at 22:44:42
+154 verbose etag "7NX6ZZOATYWXT339U04WGC5CQ"
+155 http GET https://registry.npmjs.org/keypress
+156 http 200 https://registry.npmjs.org/coffee-script
+157 silly registry.get cb [ 200,
+157 silly registry.get   { date: 'Fri, 18 Apr 2014 05:44:25 GMT',
+157 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B)',
+157 silly registry.get     etag: '"93M6HOYJQ6XZ5646L1M5GOF28"',
+157 silly registry.get     'content-type': 'application/json',
+157 silly registry.get     via: '1.1 varnish',
+157 silly registry.get     'cache-control': 'max-age=1',
+157 silly registry.get     'content-length': '30522',
+157 silly registry.get     'accept-ranges': 'bytes',
+157 silly registry.get     age: '143',
+157 silly registry.get     'x-served-by': 'cache-v37-ASH, cache-lax1426-LAX',
+157 silly registry.get     'x-cache': 'HIT, HIT',
+157 silly registry.get     'x-cache-hits': '1, 2',
+157 silly registry.get     'x-timer': 'S1397799865.229567528,VS0,VE0',
+157 silly registry.get     vary: 'Accept',
+157 silly registry.get     'keep-alive': 'timeout=10, max=50',
+157 silly registry.get     connection: 'Keep-Alive' } ]
+158 http 304 https://registry.npmjs.org/keypress
+159 silly registry.get cb [ 304,
+159 silly registry.get   { date: 'Fri, 18 Apr 2014 05:44:25 GMT',
+159 silly registry.get     server: 'Apache',
+159 silly registry.get     via: '1.1 varnish',
+159 silly registry.get     'last-modified': 'Fri, 18 Apr 2014 05:44:25 GMT',
+159 silly registry.get     'cache-control': 'max-age=1',
+159 silly registry.get     etag: '"7NX6ZZOATYWXT339U04WGC5CQ"',
+159 silly registry.get     'x-served-by': 'cache-lax1421-LAX',
+159 silly registry.get     'x-cache': 'HIT',
+159 silly registry.get     'x-cache-hits': '1',
+159 silly registry.get     'x-timer': 'S1397799865.229691982,VS0,VE143',
+159 silly registry.get     vary: 'Accept',
+159 silly registry.get     'content-length': '0',
+159 silly registry.get     'keep-alive': 'timeout=10, max=50',
+159 silly registry.get     connection: 'Keep-Alive' } ]
+160 verbose etag keypress from cache
+161 silly addNameRange number 2 { name: 'coffee-script', range: '>=1.3.3', hasData: true }
+162 silly addNameRange versions [ 'coffee-script',
+162 silly addNameRange   [ '0.7.0',
+162 silly addNameRange     '0.7.1',
+162 silly addNameRange     '0.7.2',
+162 silly addNameRange     '0.9.0',
+162 silly addNameRange     '0.9.1',
+162 silly addNameRange     '0.9.2',
+162 silly addNameRange     '0.9.3',
+162 silly addNameRange     '0.9.4',
+162 silly addNameRange     '0.9.5',
+162 silly addNameRange     '0.9.6',
+162 silly addNameRange     '1.0.0',
+162 silly addNameRange     '1.0.1',
+162 silly addNameRange     '1.1.0',
+162 silly addNameRange     '1.1.1',
+162 silly addNameRange     '1.1.2',
+162 silly addNameRange     '1.1.3',
+162 silly addNameRange     '1.2.0',
+162 silly addNameRange     '1.3.0',
+162 silly addNameRange     '1.3.1',
+162 silly addNameRange     '1.3.2',
+162 silly addNameRange     '1.3.3',
+162 silly addNameRange     '1.4.0',
+162 silly addNameRange     '1.5.0',
+162 silly addNameRange     '1.6.0',
+162 silly addNameRange     '1.6.1',
+162 silly addNameRange     '1.6.2',
+162 silly addNameRange     '1.6.3',
+162 silly addNameRange     '1.7.0',
+162 silly addNameRange     '1.7.1' ] ]
+163 verbose addNamed [ 'coffee-script', '1.7.1' ]
+164 verbose addNamed [ '1.7.1', '1.7.1' ]
+165 silly lockFile 66cb63a1-coffee-script-1-7-1 coffee-script@1.7.1
+166 verbose lock coffee-script@1.7.1 C:\Users\rtalaman\AppData\Roaming\npm-cache\66cb63a1-coffee-script-1-7-1.lock
+167 silly addNameRange number 2 { name: 'keypress', range: '', hasData: true }
+168 silly addNameRange versions [ 'keypress', [ '0.0.1', '0.0.2', '0.1.0', '0.2.0', '0.2.1' ] ]
+169 verbose addNamed [ 'keypress', '0.2.1' ]
+170 verbose addNamed [ '0.2.1', '0.2.1' ]
+171 silly lockFile 7b921081-keypress-0-2-1 keypress@0.2.1
+172 verbose lock keypress@0.2.1 C:\Users\rtalaman\AppData\Roaming\npm-cache\7b921081-keypress-0-2-1.lock
+173 verbose read json C:\Users\rtalaman\AppData\Roaming\npm-cache\keypress\0.2.1\package\package.json
+174 verbose read json C:\Users\rtalaman\AppData\Roaming\npm-cache\coffee-script\1.7.1\package\package.json
+175 http 200 https://registry.npmjs.org/underscore
+176 silly registry.get cb [ 200,
+176 silly registry.get   { date: 'Fri, 18 Apr 2014 05:44:25 GMT',
+176 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B)',
+176 silly registry.get     etag: '"5VXF4X7BFY73CIQ5CLXYA9YYM"',
+176 silly registry.get     'content-type': 'application/json',
+176 silly registry.get     via: '1.1 varnish',
+176 silly registry.get     'cache-control': 'max-age=1',
+176 silly registry.get     'content-length': '29836',
+176 silly registry.get     'accept-ranges': 'bytes',
+176 silly registry.get     age: '37',
+176 silly registry.get     'x-served-by': 'cache-v43-ASH, cache-lax1421-LAX',
+176 silly registry.get     'x-cache': 'HIT, HIT',
+176 silly registry.get     'x-cache-hits': '3, 1',
+176 silly registry.get     'x-timer': 'S1397781078.579651833,VS0,VS33,VE33,VE18786709',
+176 silly registry.get     vary: 'Accept',
+176 silly registry.get     'keep-alive': 'timeout=10, max=50',
+176 silly registry.get     connection: 'Keep-Alive' } ]
+177 silly addNameRange number 2 { name: 'underscore', range: '>=1.3.3', hasData: true }
+178 silly addNameRange versions [ 'underscore',
+178 silly addNameRange   [ '1.0.3',
+178 silly addNameRange     '1.0.4',
+178 silly addNameRange     '1.1.0',
+178 silly addNameRange     '1.1.1',
+178 silly addNameRange     '1.1.2',
+178 silly addNameRange     '1.1.3',
+178 silly addNameRange     '1.1.4',
+178 silly addNameRange     '1.1.5',
+178 silly addNameRange     '1.1.6',
+178 silly addNameRange     '1.1.7',
+178 silly addNameRange     '1.2.0',
+178 silly addNameRange     '1.2.1',
+178 silly addNameRange     '1.2.2',
+178 silly addNameRange     '1.2.3',
+178 silly addNameRange     '1.2.4',
+178 silly addNameRange     '1.3.0',
+178 silly addNameRange     '1.3.1',
+178 silly addNameRange     '1.3.2',
+178 silly addNameRange     '1.3.3',
+178 silly addNameRange     '1.4.0',
+178 silly addNameRange     '1.4.1',
+178 silly addNameRange     '1.4.2',
+178 silly addNameRange     '1.4.3',
+178 silly addNameRange     '1.4.4',
+178 silly addNameRange     '1.5.0',
+178 silly addNameRange     '1.5.1',
+178 silly addNameRange     '1.5.2',
+178 silly addNameRange     '1.6.0' ] ]
+179 verbose addNamed [ 'underscore', '1.6.0' ]
+180 verbose addNamed [ '1.6.0', '1.6.0' ]
+181 silly lockFile 96960ed1-underscore-1-6-0 underscore@1.6.0
+182 verbose lock underscore@1.6.0 C:\Users\rtalaman\AppData\Roaming\npm-cache\96960ed1-underscore-1-6-0.lock
+183 verbose read json C:\Users\rtalaman\AppData\Roaming\npm-cache\underscore\1.6.0\package\package.json
+184 silly lockFile 66cb63a1-coffee-script-1-7-1 coffee-script@1.7.1
+185 silly lockFile a8bff643-coffee-script-1-3-3 coffee-script@>=1.3.3
+186 silly lockFile 7b921081-keypress-0-2-1 keypress@0.2.1
+187 silly lockFile 8adfbd71-keypress keypress@*
+188 silly lockFile 96960ed1-underscore-1-6-0 underscore@1.6.0
+189 silly lockFile 8f6137b1-underscore-1-3-3 underscore@>=1.3.3
+190 silly resolved [ { name: 'coffee-script',
+190 silly resolved     description: 'Unfancy JavaScript',
+190 silly resolved     keywords: [ 'javascript', 'language', 'coffeescript', 'compiler' ],
+190 silly resolved     author: { name: 'Jeremy Ashkenas' },
+190 silly resolved     version: '1.7.1',
+190 silly resolved     license: 'MIT',
+190 silly resolved     engines: { node: '>=0.8.0' },
+190 silly resolved     directories: { lib: './lib/coffee-script' },
+190 silly resolved     main: './lib/coffee-script/coffee-script',
+190 silly resolved     bin: { coffee: './bin/coffee', cake: './bin/cake' },
+190 silly resolved     scripts: { test: 'node ./bin/cake test' },
+190 silly resolved     homepage: 'http://coffeescript.org',
+190 silly resolved     bugs: 'https://github.com/jashkenas/coffee-script/issues',
+190 silly resolved     repository:
+190 silly resolved      { type: 'git',
+190 silly resolved        url: 'git://github.com/jashkenas/coffee-script.git' },
+190 silly resolved     devDependencies:
+190 silly resolved      { 'uglify-js': '~2.2',
+190 silly resolved        jison: '>=0.2.0',
+190 silly resolved        'highlight.js': '~8.0.0',
+190 silly resolved        underscore: '~1.5.2' },
+190 silly resolved     dependencies: { mkdirp: '~0.3.5' },
+190 silly resolved     readme: '            {\n         }   }   {\n        {   {  }  }\n         }   }{  {\n        {  }{  }  }                    _____       __  __\n       { }{ }{  { }                   / ____|     / _|/ _|\n     .- { { }  { }} -.               | |     ___ | |_| |_ ___  ___\n    (  { } { } { } }  )              | |    / _ \\|  _|  _/ _ \\/ _ \\\n    |`-..________ ..-\'|              | |___| (_) | | | ||  __/  __/\n    |                 |               \\_____\\___/|_| |_| \\___|\\___|\n    |                 ;--.\n    |                (__  \\            _____           _       _\n    |                 | )  )          / ____|         (_)     | |\n    |                 |/  /          | (___   ___ _ __ _ _ __ | |_\n    |                 (  /            \\___ \\ / __| \'__| | \'_ \\| __|\n    |                 |/              ____) | (__| |  | | |_) | |_\n    |                 |              |_____/ \\___|_|  |_| .__/ \\__|\n     `-.._________..-\'                                  | |\n                                                        |_|\n\n\n  CoffeeScript is a little language that compiles into JavaScript.\n\n  If you have the Node Package Manager installed:\n  npm install -g coffee-script\n  (Leave off the -g if you don\'t wish to install globally.)\n\n  Or, if you don\'t wish to use npm:\n  sudo bin/cake install\n\n  Execute a script:\n  coffee /path/to/script.coffee\n\n  Compile a script:\n  coffee -c /path/to/script.coffee\n\n  For documentation, usage, and examples, see:\n  http://coffeescript.org/\n\n  To suggest a feature, report a bug, or general discussion:\n  http://github.com/jashkenas/coffee-script/issues/\n\n  If you\'d like to chat, drop by #coffeescript on Freenode IRC,\n  or on webchat.freenode.net.\n\n  The source repository:\n  git://github.com/jashkenas/coffee-script.git\n\n  Top 100 contributors are listed here:\n  http://github.com/jashkenas/coffee-script/contributors\n',
+190 silly resolved     readmeFilename: 'README',
+190 silly resolved     _id: 'coffee-script@1.7.1',
+190 silly resolved     _from: 'coffee-script@>=1.3.3' },
+190 silly resolved   { name: 'keypress',
+190 silly resolved     version: '0.2.1',
+190 silly resolved     description: 'Make any Node ReadableStream emit "keypress" events',
+190 silly resolved     author:
+190 silly resolved      { name: 'Nathan Rajlich',
+190 silly resolved        email: 'nathan@tootallnate.net',
+190 silly resolved        url: 'http://tootallnate.net' },
+190 silly resolved     main: 'index.js',
+190 silly resolved     scripts: { test: 'echo "Error: no test specified" && exit 1' },
+190 silly resolved     repository:
+190 silly resolved      { type: 'git',
+190 silly resolved        url: 'git://github.com/TooTallNate/keypress.git' },
+190 silly resolved     keywords: [ 'keypress', 'readline', 'core' ],
+190 silly resolved     license: 'MIT',
+190 silly resolved     readme: 'keypress\n========\n### Make any Node ReadableStream emit "keypress" events\n\n\nPrevious to Node `v0.8.x`, there was an undocumented `"keypress"` event that\n`process.stdin` would emit when it was a TTY. Some people discovered this hidden\ngem, and started using it in their own code.\n\nNow in Node `v0.8.x`, this `"keypress"` event does not get emitted by default,\nbut rather only when it is being used in conjuction with the `readline` (or by\nextension, the `repl`) module.\n\nThis module is the exact logic from the node `v0.8.x` releases ripped out into its\nown module.\n\n__Bonus:__ Now with mouse support!\n\nInstallation\n------------\n\nInstall with `npm`:\n\n``` bash\n$ npm install keypress\n```\n\nOr add it to the `"dependencies"` section of your _package.json_ file.\n\n\nExample\n-------\n\n#### Listening for "keypress" events\n\n``` js\nvar keypress = require(\'keypress\');\n\n// make `process.stdin` begin emitting "keypress" events\nkeypress(process.stdin);\n\n// listen for the "keypress" event\nprocess.stdin.on(\'keypress\', function (ch, key) {\n  console.log(\'got "keypress"\', key);\n  if (key && key.ctrl && key.name == \'c\') {\n    process.stdin.pause();\n  }\n});\n\nprocess.stdin.setRawMode(true);\nprocess.stdin.resume();\n```\n\n#### Listening for "mousepress" events\n\n``` js\nvar keypress = require(\'keypress\');\n\n// make `process.stdin` begin emitting "mousepress" (and "keypress") events\nkeypress(process.stdin);\n\n// you must enable the mouse events before they will begin firing\nkeypress.enableMouse(process.stdout);\n\nprocess.stdin.on(\'mousepress\', function (info) {\n  console.log(\'got "mousepress" event at %d x %d\', info.x, info.y);\n});\n\nprocess.on(\'exit\', function () {\n  // disable mouse on exit, so that the state\n  // is back to normal for the terminal\n  keypress.disableMouse(process.stdout);\n});\n```\n\n\nLicense\n-------\n\n(The MIT License)\n\nCopyright (c) 2012 Nathan Rajlich &lt;nathan@tootallnate.net&gt;\n\nPermission is hereby granted, free of charge, to any person obtaining\na copy of this software and associated documentation files (the\n\'Software\'), to deal in the Software without restriction, including\nwithout limitation the rights to use, copy, modify, merge, publish,\ndistribute, sublicense, and/or sell copies of the Software, and to\npermit persons to whom the Software is furnished to do so, subject to\nthe following conditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \'AS IS\', WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.\nIN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,\nTORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE\nSOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n',
+190 silly resolved     readmeFilename: 'README.md',
+190 silly resolved     _id: 'keypress@0.2.1',
+190 silly resolved     _from: 'keypress@*' },
+190 silly resolved   { name: 'underscore',
+190 silly resolved     description: 'JavaScript\'s functional programming helper library.',
+190 silly resolved     homepage: 'http://underscorejs.org',
+190 silly resolved     keywords: [ 'util', 'functional', 'server', 'client', 'browser' ],
+190 silly resolved     author: { name: 'Jeremy Ashkenas', email: 'jeremy@documentcloud.org' },
+190 silly resolved     repository:
+190 silly resolved      { type: 'git',
+190 silly resolved        url: 'git://github.com/jashkenas/underscore.git' },
+190 silly resolved     main: 'underscore.js',
+190 silly resolved     version: '1.6.0',
+190 silly resolved     devDependencies: { docco: '0.6.x', phantomjs: '1.9.0-1', 'uglify-js': '2.4.x' },
+190 silly resolved     scripts:
+190 silly resolved      { test: 'phantomjs test/vendor/runner.js test/index.html?noglobals=true',
+190 silly resolved        build: 'uglifyjs underscore.js -c "evaluate=false" --comments "/    .*/" -m --source-map underscore-min.map -o underscore-min.js',
+190 silly resolved        doc: 'docco underscore.js' },
+190 silly resolved     licenses: [ [Object] ],
+190 silly resolved     files: [ 'underscore.js', 'underscore-min.js', 'LICENSE' ],
+190 silly resolved     readme: '                       __\n                      /\\ \\                                                         __\n     __  __    ___    \\_\\ \\     __   _ __   ____    ___    ___   _ __    __       /\\_\\    ____\n    /\\ \\/\\ \\ /\' _ `\\  /\'_  \\  /\'__`\\/\\  __\\/ ,__\\  / ___\\ / __`\\/\\  __\\/\'__`\\     \\/\\ \\  /\',__\\\n    \\ \\ \\_\\ \\/\\ \\/\\ \\/\\ \\ \\ \\/\\  __/\\ \\ \\//\\__, `\\/\\ \\__//\\ \\ \\ \\ \\ \\//\\  __/  __  \\ \\ \\/\\__, `\\\n     \\ \\____/\\ \\_\\ \\_\\ \\___,_\\ \\____\\\\ \\_\\\\/\\____/\\ \\____\\ \\____/\\ \\_\\\\ \\____\\/\\_\\ _\\ \\ \\/\\____/\n      \\/___/  \\/_/\\/_/\\/__,_ /\\/____/ \\/_/ \\/___/  \\/____/\\/___/  \\/_/ \\/____/\\/_//\\ \\_\\ \\/___/\n                                                                                  \\ \\____/\n                                                                                   \\/___/\n\nUnderscore.js is a utility-belt library for JavaScript that provides\nsupport for the usual functional suspects (each, map, reduce, filter...)\nwithout extending any core JavaScript objects.\n\nFor Docs, License, Tests, and pre-packed downloads, see:\nhttp://underscorejs.org\n\nUnderscore is an open-sourced component of DocumentCloud:\nhttps://github.com/documentcloud\n\nMany thanks to our contributors:\nhttps://github.com/jashkenas/underscore/contributors\n',
+190 silly resolved     readmeFilename: 'README.md',
+190 silly resolved     _id: 'underscore@1.6.0',
+190 silly resolved     _from: 'underscore@>=1.3.3' } ]
+191 info install coffee-script@1.7.1 into C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node
+192 info install keypress@0.2.1 into C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node
+193 info install underscore@1.6.0 into C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node
+194 info installOne coffee-script@1.7.1
+195 info installOne keypress@0.2.1
+196 info installOne underscore@1.6.0
+197 verbose from cache C:\Users\rtalaman\AppData\Roaming\npm-cache\coffee-script\1.7.1\package\package.json
+198 verbose from cache C:\Users\rtalaman\AppData\Roaming\npm-cache\keypress\0.2.1\package\package.json
+199 info C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\coffee-script unbuild
+200 verbose read json C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\coffee-script\package.json
+201 info C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\keypress unbuild
+202 verbose read json C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\keypress\package.json
+203 verbose from cache C:\Users\rtalaman\AppData\Roaming\npm-cache\underscore\1.6.0\package\package.json
+204 info C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\underscore unbuild
+205 verbose read json C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\underscore\package.json
+206 verbose tar unpack C:\Users\rtalaman\AppData\Roaming\npm-cache\coffee-script\1.7.1\package.tgz
+207 silly lockFile 0bfdae2b--node-node-modules-coffee-script C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\coffee-script
+208 verbose lock C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\coffee-script C:\Users\rtalaman\AppData\Roaming\npm-cache\0bfdae2b--node-node-modules-coffee-script.lock
+209 verbose tar unpack C:\Users\rtalaman\AppData\Roaming\npm-cache\keypress\0.2.1\package.tgz
+210 silly lockFile 4000ff32-pencv-node-node-modules-keypress C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\keypress
+211 verbose lock C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\keypress C:\Users\rtalaman\AppData\Roaming\npm-cache\4000ff32-pencv-node-node-modules-keypress.lock
+212 verbose tar unpack C:\Users\rtalaman\AppData\Roaming\npm-cache\underscore\1.6.0\package.tgz
+213 silly lockFile 63d0b01a-ncv-node-node-modules-underscore C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\underscore
+214 verbose lock C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\underscore C:\Users\rtalaman\AppData\Roaming\npm-cache\63d0b01a-ncv-node-node-modules-underscore.lock
+215 silly gunzTarPerm modes [ '755', '644' ]
+216 silly gunzTarPerm modes [ '755', '644' ]
+217 silly gunzTarPerm modes [ '755', '644' ]
+218 silly gunzTarPerm extractEntry package.json
+219 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+220 silly gunzTarPerm extractEntry .npmignore
+221 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+222 silly gunzTarPerm extractEntry README
+223 silly gunzTarPerm modified mode [ 'README', 438, 420 ]
+224 silly gunzTarPerm extractEntry LICENSE
+225 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+226 silly gunzTarPerm extractEntry register.js
+227 silly gunzTarPerm modified mode [ 'register.js', 438, 420 ]
+228 silly gunzTarPerm extractEntry bin/cake
+229 silly gunzTarPerm modified mode [ 'bin/cake', 438, 420 ]
+230 silly gunzTarPerm extractEntry bin/coffee
+231 silly gunzTarPerm modified mode [ 'bin/coffee', 438, 420 ]
+232 silly gunzTarPerm extractEntry package.json
+233 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+234 silly gunzTarPerm extractEntry CNAME
+235 silly gunzTarPerm modified mode [ 'CNAME', 438, 420 ]
+236 silly gunzTarPerm extractEntry CONTRIBUTING.md
+237 silly gunzTarPerm modified mode [ 'CONTRIBUTING.md', 438, 420 ]
+238 silly gunzTarPerm extractEntry README.md
+239 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+240 silly gunzTarPerm extractEntry LICENSE
+241 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+242 silly gunzTarPerm extractEntry lib/coffee-script/browser.js
+243 silly gunzTarPerm modified mode [ 'lib/coffee-script/browser.js', 438, 420 ]
+244 silly gunzTarPerm extractEntry lib/coffee-script/grammar.js
+245 silly gunzTarPerm modified mode [ 'lib/coffee-script/grammar.js', 438, 420 ]
+246 silly gunzTarPerm extractEntry underscore-min.js
+247 silly gunzTarPerm modified mode [ 'underscore-min.js', 438, 420 ]
+248 silly gunzTarPerm extractEntry underscore.js
+249 silly gunzTarPerm modified mode [ 'underscore.js', 438, 420 ]
+250 silly gunzTarPerm extractEntry lib/coffee-script/helpers.js
+251 silly gunzTarPerm modified mode [ 'lib/coffee-script/helpers.js', 438, 420 ]
+252 silly gunzTarPerm extractEntry lib/coffee-script/index.js
+253 silly gunzTarPerm modified mode [ 'lib/coffee-script/index.js', 438, 420 ]
+254 silly gunzTarPerm extractEntry package.json
+255 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+256 silly gunzTarPerm extractEntry README.md
+257 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+258 silly gunzTarPerm extractEntry index.js
+259 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+260 silly gunzTarPerm extractEntry test.js
+261 silly gunzTarPerm modified mode [ 'test.js', 438, 420 ]
+262 silly gunzTarPerm extractEntry lib/coffee-script/lexer.js
+263 silly gunzTarPerm modified mode [ 'lib/coffee-script/lexer.js', 438, 420 ]
+264 silly gunzTarPerm extractEntry lib/coffee-script/command.js
+265 silly gunzTarPerm modified mode [ 'lib/coffee-script/command.js', 438, 420 ]
+266 silly gunzTarPerm extractEntry lib/coffee-script/optparse.js
+267 silly gunzTarPerm modified mode [ 'lib/coffee-script/optparse.js', 438, 420 ]
+268 silly gunzTarPerm extractEntry lib/coffee-script/parser.js
+269 silly gunzTarPerm modified mode [ 'lib/coffee-script/parser.js', 438, 420 ]
+270 silly gunzTarPerm extractEntry lib/coffee-script/register.js
+271 silly gunzTarPerm modified mode [ 'lib/coffee-script/register.js', 438, 420 ]
+272 verbose read json C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\keypress\package.json
+273 silly gunzTarPerm extractEntry lib/coffee-script/repl.js
+274 silly gunzTarPerm modified mode [ 'lib/coffee-script/repl.js', 438, 420 ]
+275 silly gunzTarPerm extractEntry lib/coffee-script/rewriter.js
+276 silly gunzTarPerm modified mode [ 'lib/coffee-script/rewriter.js', 438, 420 ]
+277 silly gunzTarPerm extractEntry lib/coffee-script/coffee-script.js
+278 silly gunzTarPerm modified mode [ 'lib/coffee-script/coffee-script.js', 438, 420 ]
+279 silly gunzTarPerm extractEntry lib/coffee-script/scope.js
+280 silly gunzTarPerm modified mode [ 'lib/coffee-script/scope.js', 438, 420 ]
+281 silly lockFile 4000ff32-pencv-node-node-modules-keypress C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\keypress
+282 info preinstall keypress@0.2.1
+283 verbose from cache C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\keypress\package.json
+284 verbose readDependencies using package.json deps
+285 verbose from cache C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\keypress\package.json
+286 verbose readDependencies using package.json deps
+287 silly resolved []
+288 verbose about to build C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\keypress
+289 info build C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\keypress
+290 verbose from cache C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\keypress\package.json
+291 verbose linkStuff [ true,
+291 verbose linkStuff   'C:\\Users\\rtalaman\\AppData\\Roaming\\npm\\node_modules',
+291 verbose linkStuff   false,
+291 verbose linkStuff   'C:\\Users\\rtalaman\\AppData\\Roaming\\npm\\node_modules\\opencv-node\\node_modules' ]
+292 info linkStuff keypress@0.2.1
+293 verbose linkBins keypress@0.2.1
+294 verbose linkMans keypress@0.2.1
+295 verbose rebuildBundles keypress@0.2.1
+296 info install keypress@0.2.1
+297 info postinstall keypress@0.2.1
+298 silly gunzTarPerm extractEntry lib/coffee-script/cake.js
+299 silly gunzTarPerm modified mode [ 'lib/coffee-script/cake.js', 438, 420 ]
+300 silly gunzTarPerm extractEntry lib/coffee-script/sourcemap.js
+301 silly gunzTarPerm modified mode [ 'lib/coffee-script/sourcemap.js', 438, 420 ]
+302 silly gunzTarPerm extractEntry lib/coffee-script/nodes.js
+303 silly gunzTarPerm modified mode [ 'lib/coffee-script/nodes.js', 438, 420 ]
+304 verbose read json C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\underscore\package.json
+305 silly lockFile 63d0b01a-ncv-node-node-modules-underscore C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\underscore
+306 info preinstall underscore@1.6.0
+307 verbose from cache C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\underscore\package.json
+308 verbose readDependencies using package.json deps
+309 verbose from cache C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\underscore\package.json
+310 verbose readDependencies using package.json deps
+311 silly resolved []
+312 verbose about to build C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\underscore
+313 info build C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\underscore
+314 verbose from cache C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\underscore\package.json
+315 verbose linkStuff [ true,
+315 verbose linkStuff   'C:\\Users\\rtalaman\\AppData\\Roaming\\npm\\node_modules',
+315 verbose linkStuff   false,
+315 verbose linkStuff   'C:\\Users\\rtalaman\\AppData\\Roaming\\npm\\node_modules\\opencv-node\\node_modules' ]
+316 info linkStuff underscore@1.6.0
+317 verbose linkBins underscore@1.6.0
+318 verbose linkMans underscore@1.6.0
+319 verbose rebuildBundles underscore@1.6.0
+320 info install underscore@1.6.0
+321 info postinstall underscore@1.6.0
+322 verbose read json C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\coffee-script\package.json
+323 silly lockFile 0bfdae2b--node-node-modules-coffee-script C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\coffee-script
+324 info preinstall coffee-script@1.7.1
+325 verbose from cache C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\coffee-script\package.json
+326 verbose readDependencies using package.json deps
+327 verbose from cache C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\coffee-script\package.json
+328 verbose readDependencies using package.json deps
+329 verbose cache add [ 'mkdirp@~0.3.5', null ]
+330 silly cache add name=undefined spec="mkdirp@~0.3.5" args=["mkdirp@~0.3.5",null]
+331 verbose parsed url { pathname: 'mkdirp@~0.3.5',
+331 verbose parsed url   path: 'mkdirp@~0.3.5',
+331 verbose parsed url   href: 'mkdirp@~0.3.5' }
+332 silly cache add name="mkdirp" spec="~0.3.5" args=["mkdirp","~0.3.5"]
+333 verbose parsed url { pathname: '~0.3.5', path: '~0.3.5', href: '~0.3.5' }
+334 verbose addNamed [ 'mkdirp', '~0.3.5' ]
+335 verbose addNamed [ null, '>=0.3.5- <0.4.0-' ]
+336 silly lockFile c3f0fe9b-mkdirp-0-3-5 mkdirp@~0.3.5
+337 verbose lock mkdirp@~0.3.5 C:\Users\rtalaman\AppData\Roaming\npm-cache\c3f0fe9b-mkdirp-0-3-5.lock
+338 silly addNameRange { name: 'mkdirp', range: '>=0.3.5- <0.4.0-', hasData: false }
+339 verbose url raw mkdirp
+340 verbose url resolving [ 'https://registry.npmjs.org/', './mkdirp' ]
+341 verbose url resolved https://registry.npmjs.org/mkdirp
+342 info trying registry request attempt 1 at 22:44:43
+343 verbose etag "D0OSIRXBBPJV5JUJHAB2DMBB4"
+344 http GET https://registry.npmjs.org/mkdirp
+345 http 200 https://registry.npmjs.org/mkdirp
+346 silly registry.get cb [ 200,
+346 silly registry.get   { date: 'Fri, 18 Apr 2014 05:44:26 GMT',
+346 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+346 silly registry.get     etag: '"62NS0AFAG1MYXFGKGY8IDHA4V"',
+346 silly registry.get     'content-type': 'application/json',
+346 silly registry.get     via: '1.1 varnish',
+346 silly registry.get     'cache-control': 'max-age=1',
+346 silly registry.get     'content-length': '16137',
+346 silly registry.get     'accept-ranges': 'bytes',
+346 silly registry.get     'x-served-by': 'cache-v37-ASH, cache-lax1435-LAX',
+346 silly registry.get     'x-cache': 'HIT, MISS',
+346 silly registry.get     'x-cache-hits': '1, 0',
+346 silly registry.get     'x-timer': 'S1397781802.989135742,VS0,VS32,VE38,VE18063410',
+346 silly registry.get     vary: 'Accept',
+346 silly registry.get     'keep-alive': 'timeout=10, max=50',
+346 silly registry.get     connection: 'Keep-Alive' } ]
+347 silly addNameRange number 2 { name: 'mkdirp', range: '>=0.3.5- <0.4.0-', hasData: true }
+348 silly addNameRange versions [ 'mkdirp',
+348 silly addNameRange   [ '0.0.1',
+348 silly addNameRange     '0.0.2',
+348 silly addNameRange     '0.0.3',
+348 silly addNameRange     '0.0.4',
+348 silly addNameRange     '0.0.5',
+348 silly addNameRange     '0.0.6',
+348 silly addNameRange     '0.0.7',
+348 silly addNameRange     '0.1.0',
+348 silly addNameRange     '0.2.0',
+348 silly addNameRange     '0.2.1',
+348 silly addNameRange     '0.2.2',
+348 silly addNameRange     '0.3.0',
+348 silly addNameRange     '0.3.1',
+348 silly addNameRange     '0.3.2',
+348 silly addNameRange     '0.3.3',
+348 silly addNameRange     '0.3.4',
+348 silly addNameRange     '0.3.5' ] ]
+349 verbose addNamed [ 'mkdirp', '0.3.5' ]
+350 verbose addNamed [ '0.3.5', '0.3.5' ]
+351 silly lockFile 67d2df2a-mkdirp-0-3-5 mkdirp@0.3.5
+352 verbose lock mkdirp@0.3.5 C:\Users\rtalaman\AppData\Roaming\npm-cache\67d2df2a-mkdirp-0-3-5.lock
+353 verbose read json C:\Users\rtalaman\AppData\Roaming\npm-cache\mkdirp\0.3.5\package\package.json
+354 silly lockFile 67d2df2a-mkdirp-0-3-5 mkdirp@0.3.5
+355 silly lockFile c3f0fe9b-mkdirp-0-3-5 mkdirp@~0.3.5
+356 silly resolved [ { name: 'mkdirp',
+356 silly resolved     description: 'Recursively mkdir, like `mkdir -p`',
+356 silly resolved     version: '0.3.5',
+356 silly resolved     author:
+356 silly resolved      { name: 'James Halliday',
+356 silly resolved        email: 'mail@substack.net',
+356 silly resolved        url: 'http://substack.net' },
+356 silly resolved     main: './index',
+356 silly resolved     keywords: [ 'mkdir', 'directory' ],
+356 silly resolved     repository:
+356 silly resolved      { type: 'git',
+356 silly resolved        url: 'http://github.com/substack/node-mkdirp.git' },
+356 silly resolved     scripts: { test: 'tap test/*.js' },
+356 silly resolved     devDependencies: { tap: '~0.4.0' },
+356 silly resolved     license: 'MIT',
+356 silly resolved     readme: '# mkdirp\n\nLike `mkdir -p`, but in node.js!\n\n[![build status](https://secure.travis-ci.org/substack/node-mkdirp.png)](http://travis-ci.org/substack/node-mkdirp)\n\n# example\n\n## pow.js\n\n```js\nvar mkdirp = require(\'mkdirp\');\n    \nmkdirp(\'/tmp/foo/bar/baz\', function (err) {\n    if (err) console.error(err)\n    else console.log(\'pow!\')\n});\n```\n\nOutput\n\n```\npow!\n```\n\nAnd now /tmp/foo/bar/baz exists, huzzah!\n\n# methods\n\n```js\nvar mkdirp = require(\'mkdirp\');\n```\n\n## mkdirp(dir, mode, cb)\n\nCreate a new directory and any necessary subdirectories at `dir` with octal\npermission string `mode`.\n\nIf `mode` isn\'t specified, it defaults to `0777 & (~process.umask())`.\n\n`cb(err, made)` fires with the error or the first directory `made`\nthat had to be created, if any.\n\n## mkdirp.sync(dir, mode)\n\nSynchronously create a new directory and any necessary subdirectories at `dir`\nwith octal permission string `mode`.\n\nIf `mode` isn\'t specified, it defaults to `0777 & (~process.umask())`.\n\nReturns the first directory that had to be created, if any.\n\n# install\n\nWith [npm](http://npmjs.org) do:\n\n```\nnpm install mkdirp\n```\n\n# license\n\nMIT\n',
+356 silly resolved     readmeFilename: 'readme.markdown',
+356 silly resolved     _id: 'mkdirp@0.3.5',
+356 silly resolved     _from: 'mkdirp@~0.3.5' } ]
+357 info install mkdirp@0.3.5 into C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\coffee-script
+358 info installOne mkdirp@0.3.5
+359 verbose from cache C:\Users\rtalaman\AppData\Roaming\npm-cache\mkdirp\0.3.5\package\package.json
+360 info C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\coffee-script\node_modules\mkdirp unbuild
+361 verbose read json C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\coffee-script\node_modules\mkdirp\package.json
+362 verbose tar unpack C:\Users\rtalaman\AppData\Roaming\npm-cache\mkdirp\0.3.5\package.tgz
+363 silly lockFile e8e12ba9-offee-script-node-modules-mkdirp C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\coffee-script\node_modules\mkdirp
+364 verbose lock C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\coffee-script\node_modules\mkdirp C:\Users\rtalaman\AppData\Roaming\npm-cache\e8e12ba9-offee-script-node-modules-mkdirp.lock
+365 silly gunzTarPerm modes [ '755', '644' ]
+366 silly gunzTarPerm extractEntry package.json
+367 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+368 silly gunzTarPerm extractEntry .npmignore
+369 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+370 silly gunzTarPerm extractEntry LICENSE
+371 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+372 silly gunzTarPerm extractEntry index.js
+373 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+374 silly gunzTarPerm extractEntry .travis.yml
+375 silly gunzTarPerm modified mode [ '.travis.yml', 438, 420 ]
+376 silly gunzTarPerm extractEntry examples/pow.js
+377 silly gunzTarPerm modified mode [ 'examples/pow.js', 438, 420 ]
+378 silly gunzTarPerm extractEntry readme.markdown
+379 silly gunzTarPerm modified mode [ 'readme.markdown', 438, 420 ]
+380 silly gunzTarPerm extractEntry test/chmod.js
+381 silly gunzTarPerm modified mode [ 'test/chmod.js', 438, 420 ]
+382 silly gunzTarPerm extractEntry test/perm.js
+383 silly gunzTarPerm modified mode [ 'test/perm.js', 438, 420 ]
+384 silly gunzTarPerm extractEntry test/perm_sync.js
+385 silly gunzTarPerm modified mode [ 'test/perm_sync.js', 438, 420 ]
+386 silly gunzTarPerm extractEntry test/race.js
+387 silly gunzTarPerm modified mode [ 'test/race.js', 438, 420 ]
+388 silly gunzTarPerm extractEntry test/mkdirp.js
+389 silly gunzTarPerm modified mode [ 'test/mkdirp.js', 438, 420 ]
+390 silly gunzTarPerm extractEntry test/return.js
+391 silly gunzTarPerm modified mode [ 'test/return.js', 438, 420 ]
+392 silly gunzTarPerm extractEntry test/return_sync.js
+393 silly gunzTarPerm modified mode [ 'test/return_sync.js', 438, 420 ]
+394 silly gunzTarPerm extractEntry test/root.js
+395 silly gunzTarPerm modified mode [ 'test/root.js', 438, 420 ]
+396 silly gunzTarPerm extractEntry test/sync.js
+397 silly gunzTarPerm modified mode [ 'test/sync.js', 438, 420 ]
+398 silly gunzTarPerm extractEntry test/umask.js
+399 silly gunzTarPerm modified mode [ 'test/umask.js', 438, 420 ]
+400 silly gunzTarPerm extractEntry test/clobber.js
+401 silly gunzTarPerm modified mode [ 'test/clobber.js', 438, 420 ]
+402 silly gunzTarPerm extractEntry test/umask_sync.js
+403 silly gunzTarPerm modified mode [ 'test/umask_sync.js', 438, 420 ]
+404 silly gunzTarPerm extractEntry test/rel.js
+405 silly gunzTarPerm modified mode [ 'test/rel.js', 438, 420 ]
+406 verbose read json C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\coffee-script\node_modules\mkdirp\package.json
+407 silly lockFile e8e12ba9-offee-script-node-modules-mkdirp C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\coffee-script\node_modules\mkdirp
+408 info preinstall mkdirp@0.3.5
+409 verbose from cache C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\coffee-script\node_modules\mkdirp\package.json
+410 verbose readDependencies using package.json deps
+411 verbose from cache C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\coffee-script\node_modules\mkdirp\package.json
+412 verbose readDependencies using package.json deps
+413 silly resolved []
+414 verbose about to build C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\coffee-script\node_modules\mkdirp
+415 info build C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\coffee-script\node_modules\mkdirp
+416 verbose from cache C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\coffee-script\node_modules\mkdirp\package.json
+417 verbose linkStuff [ true,
+417 verbose linkStuff   'C:\\Users\\rtalaman\\AppData\\Roaming\\npm\\node_modules',
+417 verbose linkStuff   false,
+417 verbose linkStuff   'C:\\Users\\rtalaman\\AppData\\Roaming\\npm\\node_modules\\opencv-node\\node_modules\\coffee-script\\node_modules' ]
+418 info linkStuff mkdirp@0.3.5
+419 verbose linkBins mkdirp@0.3.5
+420 verbose linkMans mkdirp@0.3.5
+421 verbose rebuildBundles mkdirp@0.3.5
+422 info install mkdirp@0.3.5
+423 info postinstall mkdirp@0.3.5
+424 verbose about to build C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\coffee-script
+425 info build C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\coffee-script
+426 verbose from cache C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\node_modules\coffee-script\package.json
+427 verbose linkStuff [ true,
+427 verbose linkStuff   'C:\\Users\\rtalaman\\AppData\\Roaming\\npm\\node_modules',
+427 verbose linkStuff   false,
+427 verbose linkStuff   'C:\\Users\\rtalaman\\AppData\\Roaming\\npm\\node_modules\\opencv-node\\node_modules' ]
+428 info linkStuff coffee-script@1.7.1
+429 verbose linkBins coffee-script@1.7.1
+430 verbose link bins [ { coffee: './bin/coffee', cake: './bin/cake' },
+430 verbose link bins   'C:\\Users\\rtalaman\\AppData\\Roaming\\npm\\node_modules\\opencv-node\\node_modules\\.bin',
+430 verbose link bins   false ]
+431 verbose linkMans coffee-script@1.7.1
+432 verbose rebuildBundles coffee-script@1.7.1
+433 verbose rebuildBundles [ 'mkdirp' ]
+434 info install coffee-script@1.7.1
+435 info postinstall coffee-script@1.7.1
+436 verbose about to build C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node
+437 info build C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node
+438 verbose from cache C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\package.json
+439 verbose linkStuff [ true,
+439 verbose linkStuff   'C:\\Users\\rtalaman\\AppData\\Roaming\\npm\\node_modules',
+439 verbose linkStuff   true,
+439 verbose linkStuff   'C:\\Users\\rtalaman\\AppData\\Roaming\\npm\\node_modules' ]
+440 info linkStuff opencv-node@0.2.6
+441 verbose linkBins opencv-node@0.2.6
+442 verbose linkMans opencv-node@0.2.6
+443 verbose rebuildBundles opencv-node@0.2.6
+444 verbose rebuildBundles [ '.bin', 'coffee-script', 'keypress', 'underscore' ]
+445 info install opencv-node@0.2.6
+446 verbose unsafe-perm in lifecycle true
+447 silly exec cmd "/c" "node-gyp configure build"
+448 silly cmd,/c,node-gyp configure build,C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node spawning
+449 info opencv-node@0.2.6 Failed to exec install script
+450 info C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node unbuild
+451 verbose from cache C:\Users\rtalaman\AppData\Roaming\npm\node_modules\opencv-node\package.json
+452 info preuninstall opencv-node@0.2.6
+453 info uninstall opencv-node@0.2.6
+454 verbose true,C:\Users\rtalaman\AppData\Roaming\npm\node_modules,C:\Users\rtalaman\AppData\Roaming\npm\node_modules unbuild opencv-node@0.2.6
+455 info postuninstall opencv-node@0.2.6
+456 error opencv-node@0.2.6 install: `node-gyp configure build`
+456 error `cmd "/c" "node-gyp configure build"` failed with 1
+457 error Failed at the opencv-node@0.2.6 install script.
+457 error This is most likely a problem with the opencv-node package,
+457 error not with npm itself.
+457 error Tell the author that this fails on your system:
+457 error     node-gyp configure build
+457 error You can get their info via:
+457 error     npm owner ls opencv-node
+457 error There is likely additional logging output above.
+458 error System Windows_NT 6.1.7601
+459 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "-g" "opencv-node"
+460 error cwd C:\Users\rtalaman\AppData\Roaming\npm\node_modules\mindflex_nodecopter\example\Brain_Drone_Control_and_Video_Feed_Left_Rotate
+461 error node -v v0.8.17
+462 error npm -v 1.2.0
+463 error code ELIFECYCLE
+464 verbose exit [ 1, true ]
